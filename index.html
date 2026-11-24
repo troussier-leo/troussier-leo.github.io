@@ -57,6 +57,17 @@ section{padding-block:1.6rem;border-top:1px solid var(--line)}
 .contact a{color:var(--accent)}
 .copy{font:inherit;font-size:.8rem;margin-left:.5rem;border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:.1rem .5rem;border-radius:3px;cursor:pointer}
 footer{padding-block:1.5rem 3rem;color:var(--muted);font-size:.85rem}
+.skip{position:absolute;left:-999px;top:0;background:var(--accent);color:var(--accent-ink);padding:.5rem .9rem;z-index:10;border-radius:0 0 4px 0}
+.skip:focus{left:0}
+.tools{display:flex;gap:.5rem;align-items:center}
+.theme{font:inherit;font-size:1rem;line-height:1;border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:.25rem .55rem;border-radius:3px;cursor:pointer}
+.seek{display:grid;grid-template-columns:8.5rem 1fr;gap:.55rem 1.2rem;margin:0}
+.seek dt{color:var(--muted);font-size:.9rem}
+.seek dd{margin:0}
+@media(max-width:34rem){.seek{grid-template-columns:1fr;gap:.1rem}.seek dd{margin-bottom:.7rem}}
+.js .reveal{opacity:0;transform:translateY(12px)}
+.js .reveal.in{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
+@media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none}.js .reveal.in{transition:none}}
 [lang-block]{display:none}
 html[data-l="en"] [lang-block="en"],html[data-l="fr"] [lang-block="fr"]{display:revert}
 @media(max-width:34rem){.xp li{grid-template-columns:1fr}}
@@ -65,6 +76,7 @@ html[data-l="en"] [lang-block="en"],html[data-l="fr"] [lang-block="fr"]{display:
 
 </head>
 <body>
+<a class="skip" href="#main"><span lang-block="en">Skip to content</span><span lang-block="fr">Aller au contenu</span></a>
 <div class="band"><svg class="weave" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
 <defs>
 <linearGradient id="gh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--weave-lo)"/><stop offset=".5" style="stop-color:var(--weave-hi)"/><stop offset="1" style="stop-color:var(--weave-lo)"/></linearGradient>
@@ -92,23 +104,39 @@ html[data-l="en"] [lang-block="en"],html[data-l="fr"] [lang-block="fr"]{display:
 <rect width="100%" height="100%" fill="url(#twill)"/>
 </svg><div class="wrap">
   <span class="tag">Composites · Polymers</span>
-  <div class="lang" role="group" aria-label="Language">
-    <button id="b-en" aria-pressed="true">EN</button><button id="b-fr" aria-pressed="false">FR</button>
+  <div class="tools">
+    <button class="theme" id="theme" type="button" aria-label="Toggle light / dark theme" title="Light / dark"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" style="display:block"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 1.8a6.2 6.2 0 0 1 0 12.4z" fill="currentColor"/></svg></button>
+    <div class="lang" role="group" aria-label="Language">
+      <button id="b-en" aria-pressed="true">EN</button><button id="b-fr" aria-pressed="false">FR</button>
+    </div>
   </div>
 </div></div>
 
-<main class="wrap">
+<main class="wrap" id="main">
 <header class="top">
   <h1>Léo Troussier</h1>
   <p class="role" lang-block="en">Materials engineer, composites and polymers</p>
   <p class="role" lang-block="fr">Ingénieur matériaux, composites et polymères</p>
   <p class="lead" lang-block="en">Polytech Sorbonne graduate (2025). I characterized preform behaviour during resin infusion at Hexcel's Application Lab, and synthesized biobased degradable polymer nanoparticles at KTH Stockholm.</p>
-  <p class="lead more" lang-block="en">I am looking for a junior R&amp;D engineer role in composites and polymers in France, Germany, the Netherlands or the Nordic countries. EU citizen, no work permit needed.</p>
   <p class="lead" lang-block="fr">Diplômé de Polytech Sorbonne (2025). J'ai caractérisé le comportement de préformes pendant l'infusion de résine à l'Application Lab d'Hexcel, et synthétisé des nanoparticules de polymères biosourcés et dégradables à KTH Stockholm.</p>
-  <p class="lead more" lang-block="fr">Je recherche un poste d'ingénieur R&amp;D junior en composites et polymères en France, en Allemagne, aux Pays-Bas ou dans les pays nordiques. Citoyen de l'UE, sans permis de travail.</p>
 </header>
 
-<section>
+<section class="reveal">
+  <h2 lang-block="en">What I am looking for</h2><h2 lang-block="fr">Ce que je recherche</h2>
+  <dl class="seek">
+    <dt lang-block="en">Role</dt><dt lang-block="fr">Poste</dt>
+    <dd lang-block="en">Junior R&amp;D, research, process or laboratory engineer in composites and polymers.</dd>
+    <dd lang-block="fr">Ingénieur R&amp;D, recherche, procédés ou laboratoire junior en composites et polymères.</dd>
+    <dt lang-block="en">Where</dt><dt lang-block="fr">Où</dt>
+    <dd lang-block="en">France, Germany, the Netherlands, Belgium and the Nordic countries.</dd>
+    <dd lang-block="fr">France, Allemagne, Pays-Bas, Belgique et pays nordiques.</dd>
+    <dt lang-block="en">Status</dt><dt lang-block="fr">Statut</dt>
+    <dd lang-block="en">EU citizen, no work permit needed. Available now and ready to relocate.</dd>
+    <dd lang-block="fr">Citoyen de l'UE, sans permis de travail. Disponible immédiatement et prêt à déménager.</dd>
+  </dl>
+</section>
+
+<section class="reveal">
   <h2 lang-block="en">Documents</h2><h2 lang-block="fr">Documents</h2>
   <div class="docs">
     <article class="doc">
@@ -144,7 +172,7 @@ html[data-l="en"] [lang-block="en"],html[data-l="fr"] [lang-block="fr"]{display:
   </div>
 </section>
 
-<section>
+<section class="reveal">
   <h2 lang-block="en">Education</h2><h2 lang-block="fr">Formation</h2>
   <ul class="xp">
     <li><span class="when">2021–2025</span><div><strong>Polytech Sorbonne, Paris</strong>
@@ -156,7 +184,7 @@ html[data-l="en"] [lang-block="en"],html[data-l="fr"] [lang-block="fr"]{display:
   </ul>
 </section>
 
-<section>
+<section class="reveal">
   <h2 lang-block="en">Experience</h2><h2 lang-block="fr">Expérience</h2>
   <ul class="xp">
     <li><span class="when" lang-block="en">Apr–Oct 2025</span><span class="when" lang-block="fr">Avr.–oct. 2025</span><div><strong>Hexcel, Application Lab, Les Avenières</strong>
@@ -171,7 +199,7 @@ html[data-l="en"] [lang-block="en"],html[data-l="fr"] [lang-block="fr"]{display:
   </ul>
 </section>
 
-<section>
+<section class="reveal">
   <h2 lang-block="en">Skills</h2><h2 lang-block="fr">Compétences</h2>
   <ul class="skills">
     <li>Infusion</li><li>RTM</li><li>Prepreg</li><li>AFP</li><li>SolidWorks</li><li>Python</li>
@@ -181,7 +209,7 @@ html[data-l="en"] [lang-block="en"],html[data-l="fr"] [lang-block="fr"]{display:
   <p style="margin:.9rem 0 0;color:var(--muted);font-size:.95rem" lang-block="fr">Français (natif), anglais (courant, TOEIC 935/990), allemand (notions).</p>
 </section>
 
-<section class="contact">
+<section class="contact reveal">
   <h2 lang-block="en">Contact</h2><h2 lang-block="fr">Contact</h2>
   <p>troussierleo@gmail.com <button class="copy" id="copy" type="button"><span lang-block="en">Copy</span><span lang-block="fr">Copier</span></button></p>
   <p>+33 6 52 77 88 81</p>
@@ -200,7 +228,14 @@ html[data-l="en"] [lang-block="en"],html[data-l="fr"] [lang-block="fr"]{display:
   var l='en';try{l=localStorage.getItem('lt-lang')||((navigator.language||'').indexOf('fr')===0?'fr':'en')}catch(e){}
   set(l);en.onclick=function(){set('en')};fr.onclick=function(){set('fr')};
   var c=document.getElementById('copy');
-  c.onclick=function(){try{navigator.clipboard.writeText('troussierleo@gmail.com').catch(function(){})}catch(e){}};
+  c.onclick=function(){var old=c.innerHTML;function done(){c.textContent=h.lang==='fr'?'Copié !':'Copied!';setTimeout(function(){c.innerHTML=old},1500)}try{navigator.clipboard.writeText('troussierleo@gmail.com').then(done,function(){})}catch(e){}};
+  var th=document.getElementById('theme');
+  function dark(){var t=h.getAttribute('data-theme');return t?t==='dark':(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)}
+  try{var st=localStorage.getItem('lt-theme');if(st)h.setAttribute('data-theme',st)}catch(e){}
+  th.onclick=function(){var n=dark()?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('lt-theme',n)}catch(e){}};
+  h.classList.add('js');
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});els.forEach(function(e){io.observe(e)})}else{els.forEach(function(e){e.classList.add('in')})}
 })();
 </script>
 </body>
