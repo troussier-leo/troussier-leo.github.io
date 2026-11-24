@@ -7,19 +7,13 @@
 <meta name="description" id="meta-desc" content="Léo Troussier, materials engineer, composites and polymers. Looking for a junior R&amp;D role in France, Germany, the Netherlands or the Nordic countries.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
 <style>
-/* Layout: one narrow column; a twill-weave band opens the page, then profile, documents, experience, contact. */
+/* Dark theme only. One narrow column; a twill-weave band opens the page, then profile, documents, experience, contact. */
 :root{
-  --bg:#f5f7f8; --surface:#ffffff; --fg:#14232b; --muted:#53666f; --line:#d5dee2;
-  --accent:#0d7a99; --accent-ink:#ffffff; --weave-a:#cdd8dd; --weave-b:#e9eff2; --weave-hi:#f8fbfc; --weave-lo:#b9c7cd;
+  --bg:#0f1a20; --surface:#16252d; --fg:#e8eff2; --muted:#9db0b9; --line:#2a3d46;
+  --accent:#4cc3e3; --accent-ink:#0f1a20; --weave-a:#0d171c; --weave-b:#1b2e38; --weave-hi:#2e4956; --weave-lo:#091116; color-scheme:dark;
   --font-head:"Space Grotesk","Helvetica Neue",Arial,sans-serif;
   --font-body:"Inter","Helvetica Neue",Arial,sans-serif;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0f1a20; --surface:#16252d; --fg:#e8eff2; --muted:#9db0b9; --line:#2a3d46;
-  --accent:#4cc3e3; --accent-ink:#0f1a20; --weave-a:#0d171c; --weave-b:#1b2e38; --weave-hi:#2e4956; --weave-lo:#091116; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0f1a20; --surface:#16252d; --fg:#e8eff2; --muted:#9db0b9; --line:#2a3d46;
-  --accent:#4cc3e3; --accent-ink:#0f1a20; --weave-a:#0d171c; --weave-b:#1b2e38; --weave-hi:#2e4956; --weave-lo:#091116; color-scheme:dark}
 *{box-sizing:border-box}
 img{max-width:100%}[hidden]{display:none!important}
 body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.6;margin:0}
@@ -60,7 +54,6 @@ footer{padding-block:1.5rem 3rem;color:var(--muted);font-size:.85rem}
 .skip{position:absolute;left:-999px;top:0;background:var(--accent);color:var(--accent-ink);padding:.5rem .9rem;z-index:10;border-radius:0 0 4px 0}
 .skip:focus{left:0}
 .tools{display:flex;gap:.5rem;align-items:center}
-.theme{font:inherit;font-size:1rem;line-height:1;border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:.25rem .55rem;border-radius:3px;cursor:pointer}
 .seek{display:grid;grid-template-columns:8.5rem 1fr;gap:.55rem 1.2rem;margin:0}
 .seek dt{color:var(--muted);font-size:.9rem}
 .seek dd{margin:0}
@@ -146,7 +139,6 @@ html[data-l="en"] [lang-block="en"],html[data-l="fr"] [lang-block="fr"]{display:
 </svg><div class="wrap">
   <span class="tag">Composites · Polymers</span>
   <div class="tools">
-    <button class="theme" id="theme" type="button" aria-label="Toggle light / dark theme" title="Light / dark"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" style="display:block"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 1.8a6.2 6.2 0 0 1 0 12.4z" fill="currentColor"/></svg></button>
     <div class="lang" role="group" aria-label="Language">
       <button id="b-en" aria-pressed="true">EN</button><button id="b-fr" aria-pressed="false">FR</button>
     </div>
@@ -241,14 +233,6 @@ html[data-l="en"] [lang-block="en"],html[data-l="fr"] [lang-block="fr"]{display:
 </section>
 
 <section class="reveal">
-  <h2 lang-block="en">Why a gap year?</h2><h2 lang-block="fr">Pourquoi une année de césure ?</h2>
-  <p lang-block="en" style="margin:0 0 .8rem;max-width:40rem">After two intense years of preparatory classes and my first two years of engineering school, I felt the need to take a step back and be sure of what I wanted to do.</p>
-  <p lang-block="fr" style="margin:0 0 .8rem;max-width:40rem">Après deux années intenses de classe préparatoire et mes deux premières années d'école d'ingénieurs, j'ai ressenti le besoin de décompresser et de prendre du recul pour être sûr de ce que je voulais faire.</p>
-  <p lang-block="en" style="margin:0;max-width:40rem">I spent this time as a volunteer in Morocco, then did an internship at Cycle Up, in a field that matters a lot to me: environmental protection. It let me confirm my path before specializing in polymers and composites.</p>
-  <p lang-block="fr" style="margin:0;max-width:40rem">J'ai mis ce temps à profit pour un volontariat au Maroc, puis un stage chez Cycle Up, dans un domaine qui me tient à cœur : la protection de l'environnement. Cela m'a permis de confirmer ma voie avant de me spécialiser en polymères et composites.</p>
-</section>
-
-<section class="reveal">
   <h2 lang-block="en">Skills</h2><h2 lang-block="fr">Compétences</h2>
   <ul class="skills">
     <li>Infusion</li><li>RTM</li><li>Prepreg</li><li>AFP</li><li>SolidWorks</li><li>Python</li>
@@ -292,10 +276,6 @@ html[data-l="en"] [lang-block="en"],html[data-l="fr"] [lang-block="fr"]{display:
   set(l);en.onclick=function(){set('en')};fr.onclick=function(){set('fr')};
   var c=document.getElementById('copy');
   c.onclick=function(){var old=c.innerHTML;function done(){c.textContent=h.lang==='fr'?'Copié !':'Copied!';setTimeout(function(){c.innerHTML=old},1500)}try{navigator.clipboard.writeText('troussierleo@gmail.com').then(done,function(){})}catch(e){}};
-  var th=document.getElementById('theme');
-  function dark(){var t=h.getAttribute('data-theme');return t?t==='dark':(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)}
-  try{var st=localStorage.getItem('lt-theme');if(st)h.setAttribute('data-theme',st)}catch(e){}
-  th.onclick=function(){var n=dark()?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('lt-theme',n)}catch(e){}};
   h.classList.add('js');
   var els=document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});els.forEach(function(e){io.observe(e)})}else{els.forEach(function(e){e.classList.add('in')})}
