@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Léo Troussier, materials engineer</title>
+<meta name="description" id="meta-desc" content="Léo Troussier, materials engineer, composites and polymers. Looking for a junior R&amp;D role in France, Germany, the Netherlands or the Nordic countries.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+/* Layout: one narrow column; a twill-weave band opens the page, then profile, documents, experience, contact. */
+:root{
+  --bg:#f5f7f8; --surface:#ffffff; --fg:#14232b; --muted:#53666f; --line:#d5dee2;
+  --accent:#0d7a99; --accent-ink:#ffffff; --weave-a:#cdd8dd; --weave-b:#e9eff2; --weave-hi:#f8fbfc; --weave-lo:#b9c7cd;
+  --font-head:"Space Grotesk","Helvetica Neue",Arial,sans-serif;
+  --font-body:"Inter","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1a20; --surface:#16252d; --fg:#e8eff2; --muted:#9db0b9; --line:#2a3d46;
+  --accent:#4cc3e3; --accent-ink:#0f1a20; --weave-a:#0d171c; --weave-b:#1b2e38; --weave-hi:#2e4956; --weave-lo:#091116; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1a20; --surface:#16252d; --fg:#e8eff2; --muted:#9db0b9; --line:#2a3d46;
+  --accent:#4cc3e3; --accent-ink:#0f1a20; --weave-a:#0d171c; --weave-b:#1b2e38; --weave-hi:#2e4956; --weave-lo:#091116; color-scheme:dark}
+*{box-sizing:border-box}
+img{max-width:100%}[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.6;margin:0}
+.wrap{max-width:46rem;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+.band{position:relative;overflow:hidden;background:var(--weave-a);border-bottom:1px solid var(--line);margin-top:calc(-1*env(safe-area-inset-top,0px));padding-top:env(safe-area-inset-top,0px)}
+.band .wrap{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;padding-block:1rem 5.5rem}
+.band .weave{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.band span.tag{font-family:var(--font-head);font-weight:500;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:var(--bg);padding:.2rem .6rem;border-radius:3px}
+.lang{display:flex;gap:.25rem}
+.lang button{font:inherit;font-size:.85rem;border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:.25rem .7rem;border-radius:3px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+header.top{padding-block:2.5rem 1.5rem}
+h1{font-family:var(--font-head);font-size:clamp(2.2rem,7vw,3.4rem);line-height:1.05;margin:0 0 .5rem;letter-spacing:-.02em;text-wrap:balance}
+.role{font-family:var(--font-head);font-size:1.15rem;color:var(--accent);margin:0 0 1rem;text-wrap:balance}
+.lead{max-width:40rem;margin:0;color:var(--fg)}
+.lead.more{margin-top:.9rem}
+h2{font-family:var(--font-head);font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 .9rem;font-weight:500}
+section{padding-block:1.6rem;border-top:1px solid var(--line)}
+.docs{display:grid;gap:.75rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.doc{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.4rem;min-width:0}
+.doc h3{font-family:var(--font-head);font-size:1.05rem;margin:0;line-height:1.25}
+.doc p{margin:0;color:var(--muted);font-size:.92rem}
+.doc a.btn{align-self:flex-start;margin-top:.3rem;color:var(--accent);font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--accent)}
+.doc .btns{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem}
+.doc .pill{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.xp{display:grid;gap:1rem;margin:0;padding:0;list-style:none}
+.xp li{display:grid;grid-template-columns:8.5rem 1fr;gap:.2rem 1.2rem}
+.xp .when{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.9rem}
+.xp strong{font-family:var(--font-head);font-weight:500}
+.xp p{margin:.1rem 0 0;color:var(--muted);font-size:.95rem}
+.skills{display:flex;flex-wrap:wrap;gap:.4rem;margin:0;padding:0;list-style:none}
+.skills li{border:1px solid var(--line);background:var(--surface);padding:.15rem .6rem;border-radius:3px;font-size:.88rem}
+.contact p{margin:.25rem 0}
+.contact a{color:var(--accent)}
+.copy{font:inherit;font-size:.8rem;margin-left:.5rem;border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:.1rem .5rem;border-radius:3px;cursor:pointer}
+footer{padding-block:1.5rem 3rem;color:var(--muted);font-size:.85rem}
+[lang-block]{display:none}
+html[data-l="en"] [lang-block="en"],html[data-l="fr"] [lang-block="fr"]{display:revert}
+@media(max-width:34rem){.xp li{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:no-preference){.doc{transition:border-color .15s}.doc:hover{border-color:var(--accent)}}
+</style>
+
+</head>
+<body>
+<div class="band"><svg class="weave" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+<defs>
+<linearGradient id="gh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--weave-lo)"/><stop offset=".5" style="stop-color:var(--weave-hi)"/><stop offset="1" style="stop-color:var(--weave-lo)"/></linearGradient>
+<linearGradient id="gv" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--weave-lo)"/><stop offset=".5" style="stop-color:var(--weave-b)"/><stop offset="1" style="stop-color:var(--weave-lo)"/></linearGradient>
+<pattern id="twill" width="32" height="32" patternUnits="userSpaceOnUse">
+<rect width="32" height="32" fill="var(--weave-a)"/>
+<rect x="0" y="0.5" width="8" height="7" rx="2" fill="url(#gh)"/>
+<rect x="8" y="0.5" width="8" height="7" rx="2" fill="url(#gh)"/>
+<rect x="16.5" y="0" width="7" height="8" rx="2" fill="url(#gv)"/>
+<rect x="24.5" y="0" width="7" height="8" rx="2" fill="url(#gv)"/>
+<rect x="0" y="8.5" width="8" height="7" rx="2" fill="url(#gh)"/>
+<rect x="8.5" y="8" width="7" height="8" rx="2" fill="url(#gv)"/>
+<rect x="16.5" y="8" width="7" height="8" rx="2" fill="url(#gv)"/>
+<rect x="24" y="8.5" width="8" height="7" rx="2" fill="url(#gh)"/>
+<rect x="0.5" y="16" width="7" height="8" rx="2" fill="url(#gv)"/>
+<rect x="8.5" y="16" width="7" height="8" rx="2" fill="url(#gv)"/>
+<rect x="16" y="16.5" width="8" height="7" rx="2" fill="url(#gh)"/>
+<rect x="24" y="16.5" width="8" height="7" rx="2" fill="url(#gh)"/>
+<rect x="0.5" y="24" width="7" height="8" rx="2" fill="url(#gv)"/>
+<rect x="8" y="24.5" width="8" height="7" rx="2" fill="url(#gh)"/>
+<rect x="16" y="24.5" width="8" height="7" rx="2" fill="url(#gh)"/>
+<rect x="24.5" y="24" width="7" height="8" rx="2" fill="url(#gv)"/>
+</pattern>
+</defs>
+<rect width="100%" height="100%" fill="url(#twill)"/>
+</svg><div class="wrap">
+  <span class="tag">Composites · Polymers</span>
+  <div class="lang" role="group" aria-label="Language">
+    <button id="b-en" aria-pressed="true">EN</button><button id="b-fr" aria-pressed="false">FR</button>
+  </div>
+</div></div>
+
+<main class="wrap">
+<header class="top">
+  <h1>Léo Troussier</h1>
+  <p class="role" lang-block="en">Materials engineer, composites and polymers</p>
+  <p class="role" lang-block="fr">Ingénieur matériaux, composites et polymères</p>
+  <p class="lead" lang-block="en">Polytech Sorbonne graduate (2025). I characterized preform behaviour during resin infusion at Hexcel's Application Lab, and synthesized biobased degradable polymer nanoparticles at KTH Stockholm.</p>
+  <p class="lead more" lang-block="en">I am looking for a junior R&amp;D engineer role in composites and polymers in France, Germany, the Netherlands or the Nordic countries. EU citizen, no work permit needed.</p>
+  <p class="lead" lang-block="fr">Diplômé de Polytech Sorbonne (2025). J'ai caractérisé le comportement de préformes pendant l'infusion de résine à l'Application Lab d'Hexcel, et synthétisé des nanoparticules de polymères biosourcés et dégradables à KTH Stockholm.</p>
+  <p class="lead more" lang-block="fr">Je recherche un poste d'ingénieur R&amp;D junior en composites et polymères en France, en Allemagne, aux Pays-Bas ou dans les pays nordiques. Citoyen de l'UE, sans permis de travail.</p>
+</header>
+
+<section>
+  <h2 lang-block="en">Documents</h2><h2 lang-block="fr">Documents</h2>
+  <div class="docs">
+    <article class="doc">
+      <span class="pill">PDF · 1 page · EN / FR</span>
+      <h3>CV</h3>
+      <p lang-block="en">Education, experience, skills, languages.</p>
+      <p lang-block="fr">Formation, expérience, compétences, langues.</p>
+      <div class="btns">
+        <a class="btn" lang-block="en" href="CV_Leo_Troussier_2026_EN.pdf" target="_blank" rel="noopener">Open (English)</a>
+        <a class="btn" lang-block="en" href="CV_Leo_Troussier_2026_FR.pdf" target="_blank" rel="noopener">Open (French)</a>
+        <a class="btn" lang-block="fr" href="CV_Leo_Troussier_2026_FR.pdf" target="_blank" rel="noopener">Ouvrir (français)</a>
+        <a class="btn" lang-block="fr" href="CV_Leo_Troussier_2026_EN.pdf" target="_blank" rel="noopener">Ouvrir (anglais)</a>
+      </div>
+    </article>
+    <article class="doc">
+      <span class="pill">PDF · 2 pages</span>
+      <h3 lang-block="en">Technical note: preform behaviour during resin infusion</h3>
+      <h3 lang-block="fr">Note technique : comportement des préformes pendant l'infusion</h3>
+      <p lang-block="en">Hexcel internship: test bench and vacuum level needed for a target fibre volume fraction.</p>
+      <p lang-block="fr">Stage Hexcel : banc d'essai et niveau de vide pour un taux volumique de fibres visé.</p>
+      <a class="btn" lang-block="en" href="Technical_note_Preform_behaviour_Infusion_Leo_Troussier.pdf" target="_blank" rel="noopener">Open</a>
+      <a class="btn" lang-block="fr" href="Note_technique_Comportement_preformes_infusion_Leo_Troussier.pdf" target="_blank" rel="noopener">Ouvrir</a>
+    </article>
+    <article class="doc">
+      <span class="pill">PDF · 2 pages</span>
+      <h3 lang-block="en">Technical note: biobased polymer nanoparticles by PET-RAFT</h3>
+      <h3 lang-block="fr">Note technique : nanoparticules de polymères biosourcés par PET-RAFT</h3>
+      <p lang-block="en">KTH internship: approach and skills, from macro-CTA synthesis to hydrolysis of the nanoparticles.</p>
+      <p lang-block="fr">Stage KTH : démarche et compétences, de la synthèse du macro-CTA à l'hydrolyse des nanoparticules.</p>
+      <a class="btn" lang-block="en" href="Technical_note_KTH_PET-RAFT_Leo_Troussier.pdf" target="_blank" rel="noopener">Open</a>
+      <a class="btn" lang-block="fr" href="Note_technique_KTH_PET-RAFT_Leo_Troussier.pdf" target="_blank" rel="noopener">Ouvrir</a>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2 lang-block="en">Education</h2><h2 lang-block="fr">Formation</h2>
+  <ul class="xp">
+    <li><span class="when">2021–2025</span><div><strong>Polytech Sorbonne, Paris</strong>
+      <p lang-block="en">Engineering degree in materials science. Specialization in polymers and composite materials during a final-year Erasmus semester in Prague.</p>
+      <p lang-block="fr">Diplôme d'ingénieur en science des matériaux. Spécialisation en polymères et matériaux composites lors d'un semestre Erasmus en dernière année à Prague.</p></div></li>
+    <li><span class="when">2019–2021</span><div><strong>Lycée Turgot, Paris</strong>
+      <p lang-block="en">Preparatory classes for French engineering schools (CPGE).</p>
+      <p lang-block="fr">Classes préparatoires aux grandes écoles (CPGE).</p></div></li>
+  </ul>
+</section>
+
+<section>
+  <h2 lang-block="en">Experience</h2><h2 lang-block="fr">Expérience</h2>
+  <ul class="xp">
+    <li><span class="when" lang-block="en">Apr–Oct 2025</span><span class="when" lang-block="fr">Avr.–oct. 2025</span><div><strong>Hexcel, Application Lab, Les Avenières</strong>
+      <p lang-block="en">R&amp;T engineering intern. Preform characterization for infusion, measuring bench designed in CAD.</p>
+      <p lang-block="fr">Stage d'ingénieur R&amp;T. Caractérisation de préformes pour l'infusion, banc de mesure conçu en CAO.</p></div></li>
+    <li><span class="when" lang-block="en">Apr–Sep 2024</span><span class="when" lang-block="fr">Avr.–sept. 2024</span><div><strong>Cycle Up, Paris</strong>
+      <p lang-block="en">Assistant project manager (intern), reuse of building materials: supervision of careful dismantling worksites, resource diagnostics (products, equipment, materials, waste), reports and presentations of reuse operations.</p>
+      <p lang-block="fr">Stage d'assistant chef de projet, réemploi de matériaux de construction : suivi de chantiers de dépose soignée, diagnostics ressources (produits, équipements, matériaux, déchets), rapports et présentations d'opérations de réemploi.</p></div></li>
+    <li><span class="when" lang-block="en">Jun–Aug 2023</span><span class="when" lang-block="fr">Juin–août 2023</span><div><strong>KTH Royal Institute of Technology, Stockholm</strong>
+      <p lang-block="en">Research intern, Coating Division Technology (Wallenberg Wood Science Center). Degradable and biobased polymer nanoparticles by photo-induced PET-RAFT and rROPISA, copolymerization of fossil and biobased monomers, polymers incorporated into a wood-based composite and its thermomechanical properties.</p>
+      <p lang-block="fr">Stage de recherche, Coating Division Technology (Wallenberg Wood Science Center). Nanoparticules de polymères dégradables et biosourcés par PET-RAFT photo-induit et rROPISA, copolymérisation de monomères fossiles et biosourcés, polymères incorporés dans un composite à base de bois et étude de ses propriétés thermomécaniques.</p></div></li>
+  </ul>
+</section>
+
+<section>
+  <h2 lang-block="en">Skills</h2><h2 lang-block="fr">Compétences</h2>
+  <ul class="skills">
+    <li>Infusion</li><li>RTM</li><li>Prepreg</li><li>AFP</li><li>SolidWorks</li><li>Python</li>
+    <li>NMR</li><li>FT-IR</li><li>SEC</li><li>DSC</li><li>TGA</li>
+  </ul>
+  <p style="margin:.9rem 0 0;color:var(--muted);font-size:.95rem" lang-block="en">French (native), English (fluent, TOEIC 935/990), German (basic).</p>
+  <p style="margin:.9rem 0 0;color:var(--muted);font-size:.95rem" lang-block="fr">Français (natif), anglais (courant, TOEIC 935/990), allemand (notions).</p>
+</section>
+
+<section class="contact">
+  <h2 lang-block="en">Contact</h2><h2 lang-block="fr">Contact</h2>
+  <p>troussierleo@gmail.com <button class="copy" id="copy" type="button"><span lang-block="en">Copy</span><span lang-block="fr">Copier</span></button></p>
+  <p>+33 6 52 77 88 81</p>
+  <p lang-block="en">Category B driving licence, own car.</p>
+  <p lang-block="fr">Permis B, véhiculé.</p>
+  <p><a href="https://www.linkedin.com/in/l%C3%A9o-troussier-146562223" target="_blank" rel="noopener">LinkedIn</a></p>
+</section>
+<footer>Paris · 2026</footer>
+</main>
+
+<script>
+(function(){
+  var h=document.documentElement,en=document.getElementById('b-en'),fr=document.getElementById('b-fr');
+  var T={en:['Léo Troussier, materials engineer','Léo Troussier, materials engineer, composites and polymers. Looking for a junior R&D role in France, Germany, the Netherlands or the Nordic countries.'],fr:['Léo Troussier, ingénieur matériaux','Léo Troussier, ingénieur matériaux, composites et polymères. Recherche un premier poste R&D en France, en Allemagne, aux Pays-Bas ou dans les pays nordiques.']};
+  function set(l){h.setAttribute('data-l',l);h.lang=l;document.title=T[l][0];var m=document.getElementById('meta-desc');if(m)m.setAttribute('content',T[l][1]);en.setAttribute('aria-pressed',l==='en');fr.setAttribute('aria-pressed',l==='fr');try{localStorage.setItem('lt-lang',l)}catch(e){}}
+  var l='en';try{l=localStorage.getItem('lt-lang')||((navigator.language||'').indexOf('fr')===0?'fr':'en')}catch(e){}
+  set(l);en.onclick=function(){set('en')};fr.onclick=function(){set('fr')};
+  var c=document.getElementById('copy');
+  c.onclick=function(){try{navigator.clipboard.writeText('troussierleo@gmail.com').catch(function(){})}catch(e){}};
+})();
+</script>
+</body>
+</html>
