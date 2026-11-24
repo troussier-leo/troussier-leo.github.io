@@ -25,7 +25,7 @@ img{max-width:100%}[hidden]{display:none!important}
 body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.6;margin:0}
 .wrap{max-width:46rem;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
 .band{position:relative;overflow:hidden;background:var(--weave-a);border-bottom:1px solid var(--line);margin-top:calc(-1*env(safe-area-inset-top,0px));padding-top:env(safe-area-inset-top,0px)}
-.band .wrap{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;padding-block:1rem 5.5rem}
+.band .wrap{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;padding-block:1rem 8rem}
 .band .weave{position:absolute;inset:0;width:100%;height:100%;z-index:0}
 .band span.tag{font-family:var(--font-head);font-weight:500;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:var(--bg);padding:.2rem .6rem;border-radius:3px}
 .lang{display:flex;gap:.25rem}
@@ -77,10 +77,13 @@ html[data-l="en"] [lang-block="en"],html[data-l="fr"] [lang-block="fr"]{display:
 </head>
 <body>
 <a class="skip" href="#main"><span lang-block="en">Skip to content</span><span lang-block="fr">Aller au contenu</span></a>
-<div class="band"><svg class="weave" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+<div class="band"><svg class="weave" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" preserveAspectRatio="xMidYMid slice">
 <defs>
 <linearGradient id="gh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--weave-lo)"/><stop offset=".5" style="stop-color:var(--weave-hi)"/><stop offset="1" style="stop-color:var(--weave-lo)"/></linearGradient>
 <linearGradient id="gv" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--weave-lo)"/><stop offset=".5" style="stop-color:var(--weave-b)"/><stop offset="1" style="stop-color:var(--weave-lo)"/></linearGradient>
+<linearGradient id="fadeR" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff"/><stop offset=".7" stop-color="#fff"/><stop offset="1" stop-color="#000"/></linearGradient>
+<linearGradient id="resin" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--accent);stop-opacity:.55"/><stop offset="1" style="stop-color:var(--accent);stop-opacity:.08"/></linearGradient>
+<marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" style="fill:var(--accent)"/></marker>
 <pattern id="twill" width="32" height="32" patternUnits="userSpaceOnUse">
 <rect width="32" height="32" fill="var(--weave-a)"/>
 <rect x="0" y="0.5" width="8" height="7" rx="2" fill="url(#gh)"/>
@@ -100,8 +103,46 @@ html[data-l="en"] [lang-block="en"],html[data-l="fr"] [lang-block="fr"]{display:
 <rect x="16" y="24.5" width="8" height="7" rx="2" fill="url(#gh)"/>
 <rect x="24.5" y="24" width="7" height="8" rx="2" fill="url(#gv)"/>
 </pattern>
+<mask id="mL"><rect x="0" y="0" width="470" height="240" fill="url(#fadeR)"/></mask>
 </defs>
-<rect width="100%" height="100%" fill="url(#twill)"/>
+<rect width="1200" height="240" fill="var(--weave-a)"/>
+<rect width="470" height="240" fill="url(#twill)" mask="url(#mL)"/>
+<!-- resin infusion, cross-section -->
+<g>
+<rect x="440" y="194" width="320" height="14" rx="2" style="fill:var(--weave-lo)"/>
+<rect x="452" y="118" width="296" height="8" rx="4" fill="url(#gh)"/>
+<rect x="462" y="130" width="286" height="8" rx="4" fill="url(#gh)"/>
+<rect x="452" y="142" width="296" height="8" rx="4" fill="url(#gh)"/>
+<rect x="462" y="154" width="286" height="8" rx="4" fill="url(#gh)"/>
+<rect x="452" y="166" width="296" height="8" rx="4" fill="url(#gh)"/>
+<rect x="452" y="112" width="210" height="62" rx="4" fill="url(#resin)"/>
+<path d="M440 112 Q600 58 760 112" fill="none" style="stroke:var(--muted)" stroke-width="1.6" stroke-dasharray="5 4"/>
+<path d="M444 52 L470 106" fill="none" style="stroke:var(--accent)" stroke-width="5" stroke-linecap="round"/>
+<path d="M752 100 L778 44" fill="none" style="stroke:var(--muted)" stroke-width="5" stroke-linecap="round"/>
+<path d="M470 144 H640" fill="none" style="stroke:var(--accent)" stroke-width="2" marker-end="url(#ar)"/>
+</g>
+<!-- polymer nanoparticles and chains -->
+<g>
+<circle cx="878" cy="70" r="15" fill="var(--accent)" fill-opacity=".14" stroke="var(--accent)" stroke-opacity=".8" stroke-width="1.6"/>
+<circle cx="878" cy="70" r="7.5" fill="var(--accent)" fill-opacity=".55"/>
+<circle cx="940" cy="52" r="9" fill="var(--accent)" fill-opacity=".14" stroke="var(--accent)" stroke-opacity=".8" stroke-width="1.6"/>
+<circle cx="985" cy="96" r="21" fill="var(--accent)" fill-opacity=".14" stroke="var(--accent)" stroke-opacity=".8" stroke-width="1.6"/>
+<circle cx="985" cy="96" r="10.5" fill="var(--accent)" fill-opacity=".55"/>
+<circle cx="1048" cy="60" r="12" fill="var(--accent)" fill-opacity=".14" stroke="var(--accent)" stroke-opacity=".8" stroke-width="1.6"/>
+<circle cx="1090" cy="118" r="17" fill="var(--accent)" fill-opacity=".14" stroke="var(--accent)" stroke-opacity=".8" stroke-width="1.6"/>
+<circle cx="1090" cy="118" r="8.5" fill="var(--accent)" fill-opacity=".55"/>
+<circle cx="1150" cy="70" r="8" fill="var(--accent)" fill-opacity=".14" stroke="var(--accent)" stroke-opacity=".8" stroke-width="1.6"/>
+<circle cx="905" cy="150" r="10" fill="var(--accent)" fill-opacity=".14" stroke="var(--accent)" stroke-opacity=".8" stroke-width="1.6"/>
+<circle cx="965" cy="170" r="16" fill="var(--accent)" fill-opacity=".14" stroke="var(--accent)" stroke-opacity=".8" stroke-width="1.6"/>
+<circle cx="965" cy="170" r="8.0" fill="var(--accent)" fill-opacity=".55"/>
+<circle cx="1035" cy="168" r="9" fill="var(--accent)" fill-opacity=".14" stroke="var(--accent)" stroke-opacity=".8" stroke-width="1.6"/>
+<circle cx="1120" cy="180" r="12" fill="var(--accent)" fill-opacity=".14" stroke="var(--accent)" stroke-opacity=".8" stroke-width="1.6"/>
+<circle cx="1170" cy="140" r="7" fill="var(--accent)" fill-opacity=".14" stroke="var(--accent)" stroke-opacity=".8" stroke-width="1.6"/>
+<circle cx="860" cy="112" r="7" fill="var(--accent)" fill-opacity=".14" stroke="var(--accent)" stroke-opacity=".8" stroke-width="1.6"/>
+<path d="M860 205 q14 -16 28 0 t28 0 t28 0 t28 0" fill="none" stroke="var(--muted)" stroke-opacity=".6" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M1010 215 q12 -14 24 0 t24 0 t24 0 t24 0 t24 0" fill="none" stroke="var(--muted)" stroke-opacity=".6" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M870 30 q14 -14 28 0 t28 0 t28 0" fill="none" stroke="var(--muted)" stroke-opacity=".5" stroke-width="1.6" stroke-linecap="round"/>
+</g>
 </svg><div class="wrap">
   <span class="tag">Composites · Polymers</span>
   <div class="tools">
@@ -200,6 +241,14 @@ html[data-l="en"] [lang-block="en"],html[data-l="fr"] [lang-block="fr"]{display:
 </section>
 
 <section class="reveal">
+  <h2 lang-block="en">Why a gap year?</h2><h2 lang-block="fr">Pourquoi une année de césure ?</h2>
+  <p lang-block="en" style="margin:0 0 .8rem;max-width:40rem">After two intense years of preparatory classes and my first two years of engineering school, I felt the need to take a step back and be sure of what I wanted to do.</p>
+  <p lang-block="fr" style="margin:0 0 .8rem;max-width:40rem">Après deux années intenses de classe préparatoire et mes deux premières années d'école d'ingénieurs, j'ai ressenti le besoin de décompresser et de prendre du recul pour être sûr de ce que je voulais faire.</p>
+  <p lang-block="en" style="margin:0;max-width:40rem">I spent this time as a volunteer in Morocco, then did an internship at Cycle Up, in a field that matters a lot to me: environmental protection. It let me confirm my path before specializing in polymers and composites.</p>
+  <p lang-block="fr" style="margin:0;max-width:40rem">J'ai mis ce temps à profit pour un volontariat au Maroc, puis un stage chez Cycle Up, dans un domaine qui me tient à cœur : la protection de l'environnement. Cela m'a permis de confirmer ma voie avant de me spécialiser en polymères et composites.</p>
+</section>
+
+<section class="reveal">
   <h2 lang-block="en">Skills</h2><h2 lang-block="fr">Compétences</h2>
   <ul class="skills">
     <li>Infusion</li><li>RTM</li><li>Prepreg</li><li>AFP</li><li>SolidWorks</li><li>Python</li>
@@ -207,6 +256,20 @@ html[data-l="en"] [lang-block="en"],html[data-l="fr"] [lang-block="fr"]{display:
   </ul>
   <p style="margin:.9rem 0 0;color:var(--muted);font-size:.95rem" lang-block="en">French (native), English (fluent, TOEIC 935/990), German (basic).</p>
   <p style="margin:.9rem 0 0;color:var(--muted);font-size:.95rem" lang-block="fr">Français (natif), anglais (courant, TOEIC 935/990), allemand (notions).</p>
+</section>
+
+<section class="reveal">
+  <h2 lang-block="en">Beyond work</h2><h2 lang-block="fr">Au-delà du travail</h2>
+  <p lang-block="en" style="margin:0 0 .8rem;max-width:40rem">A good balance between personal and professional life matters to me. Sport is what keeps it steady: I run, swim and do strength training very regularly, and it gives me the energy, discipline and clear head I bring to my work.</p>
+  <p lang-block="fr" style="margin:0 0 .8rem;max-width:40rem">L'équilibre entre vie personnelle et vie professionnelle compte beaucoup pour moi. Le sport le maintient : je cours, je nage et je fais du renforcement très régulièrement, ce qui m'apporte l'énergie, la discipline et le recul que je mets dans mon travail.</p>
+  <p lang-block="en" style="margin:0 0 .9rem;max-width:40rem">I competed in swimming with the Sorbonne and played volleyball in competition for three years, which taught me team spirit, perseverance and how to perform under pressure.</p>
+  <p lang-block="fr" style="margin:0 0 .9rem;max-width:40rem">J'ai fait de la natation en compétition avec la Sorbonne et trois ans de volley en compétition, ce qui m'a appris l'esprit d'équipe, la persévérance et la gestion de la pression.</p>
+  <ul class="skills">
+    <li lang-block="en">Running</li><li lang-block="fr">Course à pied</li>
+    <li lang-block="en">Swimming (competition)</li><li lang-block="fr">Natation (compétition)</li>
+    <li lang-block="en">Strength training</li><li lang-block="fr">Renforcement</li>
+    <li lang-block="en">Volleyball (3 years, competition)</li><li lang-block="fr">Volley (3 ans, compétition)</li>
+  </ul>
 </section>
 
 <section class="contact reveal">
